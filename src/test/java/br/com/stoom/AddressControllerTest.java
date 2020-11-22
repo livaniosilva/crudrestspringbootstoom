@@ -63,10 +63,10 @@ public class AddressControllerTest {
     }
     
     @Test
-    public void findById(Long id) throws Exception{
+    public void findById() throws Exception{
 
-    	when(service.findById(id)).thenReturn(getAddress());
-    	this.mockMvc.perform(get("/stoom/addres/{id}")).andDo(print()).andExpect(status().isOk())
+    	when(service.findById((long) 11)).thenReturn(getAddress());
+    	this.mockMvc.perform(get("/stoom/address/11")).andDo(print()).andExpect(status().isOk())
                 .andExpect(content().contentType("APPLICATION.JSON"));
     }
     
